@@ -130,7 +130,7 @@
         
         <div class="portfolio-grid" style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.5rem; height: 80vh; max-height: 800px;">
             @php
-                $projects = [
+                $allProjects = [
                     [
                         'id' => 1,
                         'title' => 'WINE & DINE',
@@ -196,8 +196,23 @@
                         'icon' => '🎵',
                         'size' => 'medium',
                         'gridArea' => '3 / 2 / 4 / 3'
+                    ],
+
+                    [
+                        'id' => 8,
+                        'title' => 'MUSIC VIDEO',
+                        'client' => 'Artist Name',
+                        'category' => 'Entertainment',
+                        'video' => 'videos/portfolio/music.mp4',
+                        'fallback' => 'linear-gradient(135deg, #FF1493 0%, #FF69B4 50%, #FFB6C1 100%)',
+                        'icon' => '🎵',
+                        'size' => 'medium',
+                        'gridArea' => '3 / 2 / 4 / 3'
                     ]
                 ];
+                
+                // Show only first 4 projects on homepage
+                $projects = array_slice($allProjects, 0, 4);
             @endphp
 
             @foreach($projects as $project)
@@ -255,7 +270,7 @@
 
         <!-- View All Projects Button -->
         <div style="text-align: center; padding: 3rem 2rem;">
-            <a href="#" class="btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">View All Projects</a>
+            <button onclick="openProjectsModal()" class="btn-primary" style="font-size: 1.1rem; padding: 15px 40px; border: none; cursor: pointer;">View All Projects</button>
         </div>
     </div>
 </section>
@@ -331,4 +346,69 @@
         </div>
     </div>
 </footer>
+
+<!-- Projects Modal -->
+<div id="projectsModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10000; overflow-y: auto;">
+    <div class="modal-content" style="position: relative; max-width: 1400px; margin: 2rem auto; padding: 2rem; background: #000000; border-radius: 15px; border: 2px solid rgba(255, 0, 0, 0.3);">
+        <!-- Modal Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: #FFFFFF;">
+                All <span class="text-red">Projects</span>
+            </h2>
+            <button onclick="closeProjectsModal()" style="background: #FF0000; color: #FFFFFF; border: none; padding: 10px 15px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" onmouseout="this.style.background='#FF0000'; this.style.color='#FFFFFF';">×</button>
+        </div>
+        
+        <!-- All Projects Grid -->
+        <div class="modal-projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            @foreach($allProjects as $project)
+            <div class="modal-portfolio-item" style="position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3); height: 300px;" onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000';" onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)';">
+                
+                <!-- Video Background -->
+                <video class="modal-portfolio-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset($project['video']) }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="modal-portfolio-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $project['fallback'] }}; z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                    <!-- Top Badge -->
+                    <div style="align-self: flex-start;">
+                        <div style="background: rgba(255, 0, 0, 0.9); padding: 6px 12px; border-radius: 20px; display: inline-block;">
+                            <span style="color: #FFFFFF; font-weight: 700; font-size: 0.7rem; letter-spacing: 1px;">{{ $project['title'] }}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Content -->
+                    <div style="align-self: flex-end; text-align: right;">
+                        <div style="background: rgba(0, 0, 0, 0.8); padding: 8px 16px; border-radius: 20px; margin-bottom: 1rem;">
+                            <h3 style="color: #FFFFFF; font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;">{{ $project['client'] }}</h3>
+                            <p style="color: #FF0000; font-size: 0.8rem; font-weight: 600; margin: 0;">{{ $project['category'] }}</p>
+                        </div>
+                        
+                        <!-- Icon -->
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">{{ $project['icon'] }}</div>
+                        
+                        <!-- View Button -->
+                        <div style="text-align: center;">
+                            <button style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.8rem;" 
+                                    onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" 
+                                    onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 @endsection

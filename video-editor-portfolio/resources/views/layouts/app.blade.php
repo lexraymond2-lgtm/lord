@@ -201,9 +201,9 @@
         }
 
         .navbar-logo {
-            height: 40px;
+            height: 50px;
             width: auto;
-            margin-right: 10px;
+            margin-right: 15px;
         }
 
         .navbar-nav {
@@ -283,7 +283,7 @@
             }
 
             .navbar-logo {
-                height: 25px;
+                height: 35px;
             }
 
             .navbar-brand {
@@ -439,7 +439,7 @@
             }
 
             .navbar-logo {
-                height: 20px;
+                height: 30px;
             }
 
             .portfolio-item {
@@ -502,14 +502,237 @@
         .container {
             padding: 0 15px;
         }
+
+        /* Loading Page Styles */
+        .loading-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            padding: 2rem;
+        }
+
+        .loading-page.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 2rem;
+            animation: logoFloat 2s ease-in-out infinite;
+            max-width: 100%;
+        }
+
+        .loading-brand {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FF0000;
+            margin-bottom: 1rem;
+            animation: brandPulse 2s ease-in-out infinite;
+            text-align: center;
+        }
+
+        .loading-subtitle {
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            animation: fadeInOut 3s ease-in-out infinite;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 0, 0, 0.3);
+            border-top: 3px solid #FF0000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes brandPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Loading Page */
+        @media (max-width: 1024px) {
+            .loading-page {
+                padding: 1.5rem;
+            }
+
+            .loading-logo {
+                height: 70px;
+            }
+
+            .loading-brand {
+                font-size: 2.2rem;
+            }
+
+            .loading-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .loading-page {
+                padding: 1rem;
+            }
+
+            .loading-logo {
+                height: 60px;
+                margin-bottom: 1.5rem;
+            }
+
+            .loading-brand {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .loading-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .loading-page {
+                padding: 0.5rem;
+            }
+
+            .loading-logo {
+                height: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .loading-brand {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .loading-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .loading-spinner {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .loading-logo {
+                height: 40px;
+            }
+
+            .loading-brand {
+                font-size: 1.2rem;
+            }
+
+            .loading-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .loading-spinner {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            backdrop-filter: blur(10px);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Modal Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .modal-projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .modal-portfolio-item {
+                height: 250px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            .modal-portfolio-item {
+                height: 200px !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Page -->
+    <div class="loading-page" id="loadingPage">
+        <img src="{{ asset('logo/Red-on-black1.jpg') }}" alt="Off The Grid GH Logo" class="loading-logo">
+        <h1 class="loading-brand">offthegridgh</h1>
+        <p class="loading-subtitle">Creative Video Editing</p>
+        <div class="loading-spinner"></div>
+    </div>
+
     <nav class="navbar">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('logo/Red-on-black1.jpg') }}" alt="Video Editor Logo" class="navbar-logo">
-                VIDEO EDITOR
+                <img src="{{ asset('logo/Red-on-black1.jpg') }}" alt="Off The Grid GH Logo" class="navbar-logo">
+                offthegridgh
             </a>
             <ul class="navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
@@ -553,6 +776,35 @@
             });
         });
 
+        // Loading page functionality
+        let loadingStartTime = Date.now();
+        
+        window.addEventListener('load', function() {
+            const loadingPage = document.getElementById('loadingPage');
+            const elapsedTime = Date.now() - loadingStartTime;
+            const remainingTime = Math.max(0, 2000 - elapsedTime); // Ensure minimum 2 seconds total
+            
+            setTimeout(function() {
+                loadingPage.classList.add('fade-out');
+                
+                // Remove loading page from DOM after fade out
+                setTimeout(function() {
+                    loadingPage.style.display = 'none';
+                }, 500);
+            }, remainingTime);
+        });
+
+        // Fallback: Hide loading page after maximum 3 seconds regardless
+        setTimeout(function() {
+            const loadingPage = document.getElementById('loadingPage');
+            if (loadingPage && loadingPage.style.display !== 'none') {
+                loadingPage.classList.add('fade-out');
+                setTimeout(function() {
+                    loadingPage.style.display = 'none';
+                }, 500);
+            }
+        }, 3000);
+
         // Video fallback handling
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.video-background');
@@ -590,6 +842,52 @@
                     }
                 });
             });
+
+            // Modal portfolio video fallback handling
+            const modalPortfolioVideos = document.querySelectorAll('.modal-portfolio-video');
+            modalPortfolioVideos.forEach(video => {
+                const fallback = video.nextElementSibling;
+                
+                video.addEventListener('error', function() {
+                    if (fallback) {
+                        fallback.style.display = 'block';
+                    }
+                });
+                
+                video.addEventListener('loadeddata', function() {
+                    if (fallback) {
+                        fallback.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Functions
+        function openProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('projectsModal');
+            if (event.target === modal) {
+                closeProjectsModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeProjectsModal();
+            }
         });
     </script>
 </body>
