@@ -520,6 +520,8 @@
             transition: opacity 0.5s ease, visibility 0.5s ease;
             padding: 2rem;
             box-sizing: border-box;
+            margin: 0;
+            overflow: hidden;
         }
 
         .loading-page.fade-out {
