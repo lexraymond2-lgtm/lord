@@ -306,30 +306,35 @@
                 </div>
             </div>
             <div>
-                <form class="contact-form" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 0, 0, 0.2);">
+                <form id="contactForm" class="contact-form" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 0, 0, 0.2);">
+                    @csrf
+                    <div id="formMessage" style="display: none; padding: 10px; margin-bottom: 1rem; border-radius: 5px; text-align: center;"></div>
+                    
                     <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Name</label>
-                        <input type="text" style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;" placeholder="Your Name">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Name *</label>
+                        <input type="text" name="name" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;" placeholder="Your Name">
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Email</label>
-                        <input type="email" style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;" placeholder="your@email.com">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Email *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;" placeholder="your@email.com">
                     </div>
                     <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Project Type</label>
-                        <select style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Project Type *</label>
+                        <select name="project_type" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;">
                             <option value="">Select Project Type</option>
-                            <option value="corporate">Corporate Video</option>
-                            <option value="music">Music Video</option>
-                            <option value="social">Social Media</option>
-                            <option value="other">Other</option>
+                            <option value="Corporate Video">Corporate Video</option>
+                            <option value="Music Video">Music Video</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div style="margin-bottom: 2rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Message</label>
-                        <textarea rows="4" style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem; resize: vertical;" placeholder="Tell me about your project..."></textarea>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Message *</label>
+                        <textarea name="message" rows="4" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem; resize: vertical;" placeholder="Tell me about your project..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                    <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </div>

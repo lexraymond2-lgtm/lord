@@ -1017,6 +1017,65 @@
                 closeVideoModal();
             }
         });
+
+        // Contact form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Disable submit button
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    
+                    // Send AJAX request
+                    fetch('/contact', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            formMessage.style.display = 'block';
+                            formMessage.style.background = 'rgba(0, 255, 0, 0.1)';
+                            formMessage.style.border = '1px solid #00FF00';
+                            formMessage.style.color = '#00FF00';
+                            formMessage.textContent = data.message;
+                            contactForm.reset();
+                        } else {
+                            formMessage.style.display = 'block';
+                            formMessage.style.background = 'rgba(255, 0, 0, 0.1)';
+                            formMessage.style.border = '1px solid #FF0000';
+                            formMessage.style.color = '#FF0000';
+                            formMessage.textContent = data.message;
+                        }
+                    })
+                    .catch(error => {
+                        formMessage.style.display = 'block';
+                        formMessage.style.background = 'rgba(255, 0, 0, 0.1)';
+                        formMessage.style.border = '1px solid #FF0000';
+                        formMessage.style.color = '#FF0000';
+                        formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+                    })
+                    .finally(() => {
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>

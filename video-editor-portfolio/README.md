@@ -1,64 +1,233 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# offthegridgh - Video Editor Portfolio Website
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A professional portfolio website for video editors built with Laravel, featuring a modern red, white, and black theme with video backgrounds and responsive design.
 
-## About Laravel
+## 🎬 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### ✨ **Design & User Experience**
+- **Modern Theme**: Red, white, and black color scheme
+- **Video Backgrounds**: Hero section with video background
+- **Loading Animation**: Branded loading page with logo animation
+- **Responsive Design**: Mobile-first responsive layout
+- **Smooth Animations**: CSS animations and transitions
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📱 **Responsive Sections**
+- **Hero Section**: Video background with call-to-action
+- **About Me**: Professional photo and detailed information
+- **Services**: Video editing services showcase
+- **Portfolio**: Dynamic project grid with video previews
+- **Contact**: SMTP-powered contact form
+- **Footer**: Social links and branding
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🎥 **Portfolio Features**
+- **Dynamic Grid**: 2x2 layout with varying item sizes
+- **Video Previews**: Each project includes video background
+- **Modal Views**: Full-screen project viewing
+- **Project Management**: Easy-to-update project array
+- **Video Modals**: Full-screen video playback with blur background
 
-## Learning Laravel
+### 📧 **Contact System**
+- **SMTP Integration**: Professional email delivery
+- **Form Validation**: Client and server-side validation
+- **AJAX Submission**: No page reload required
+- **Email Templates**: Professional HTML email design
+- **Success/Error Handling**: User-friendly feedback
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 **Installation & Setup**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### **Prerequisites**
+- PHP 8.0 or higher
+- Composer
+- MySQL/MariaDB
+- Node.js (for asset compilation)
 
-## Laravel Sponsors
+### **1. Clone and Install**
+```bash
+git clone <repository-url>
+cd video-editor-portfolio
+composer install
+npm install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### **2. Environment Configuration**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-### Premium Partners
+### **3. Database Setup**
+```bash
+# Create database
+mysql -u root -p
+CREATE DATABASE video_editor_portfolio;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# Run migrations
+php artisan migrate
+```
 
-## Contributing
+### **4. SMTP Configuration**
+Add these settings to your `.env` file:
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=your-email@gmail.com
+MAIL_FROM_NAME="offthegridgh"
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **5. Asset Compilation**
+```bash
+npm run dev
+# or for production
+npm run build
+```
 
-## Code of Conduct
+### **6. Start Development Server**
+```bash
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Visit: `http://localhost:8000`
 
-## Security Vulnerabilities
+## 📁 **Project Structure**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+video-editor-portfolio/
+├── app/
+│   └── Http/Controllers/
+│       └── ContactController.php      # Contact form handling
+├── resources/
+│   └── views/
+│       ├── layouts/
+│       │   └── app.blade.php          # Main layout with CSS/JS
+│       ├── emails/
+│       │   └── contact.blade.php      # Email template
+│       ├── home.blade.php             # Homepage
+│       └── about.blade.php            # About page
+├── public/
+│   ├── logo/
+│   │   └── Red-on-black1.jpg         # Logo image
+│   ├── videos/
+│   │   ├── hero-video.mp4            # Hero background video
+│   │   └── portfolio/                # Portfolio project videos
+│   └── about-photo.jpg               # Professional photo
+└── routes/
+    └── web.php                       # Application routes
+```
 
-## License
+## 🎨 **Customization**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### **Adding New Projects**
+Edit the `$allProjects` array in `resources/views/home.blade.php`:
+
+```php
+$allProjects = [
+    [
+        'title' => 'Project Title',
+        'category' => 'Corporate Video',
+        'description' => 'Project description',
+        'video' => 'portfolio/project-video.mp4',
+        'size' => 'large' // or 'tall', 'wide', 'normal'
+    ],
+    // Add more projects...
+];
+```
+
+### **Updating Brand Information**
+- **Logo**: Replace `public/logo/Red-on-black1.jpg`
+- **Brand Name**: Update in `resources/views/layouts/app.blade.php`
+- **Colors**: Modify CSS variables in the layout file
+
+### **Video Backgrounds**
+- **Hero Video**: Place in `public/videos/hero-video.mp4`
+- **Portfolio Videos**: Add to `public/videos/portfolio/`
+- **Fallback**: Gradient backgrounds for missing videos
+
+## 📧 **SMTP Setup**
+
+### **Gmail Configuration**
+1. Enable 2-Factor Authentication
+2. Generate App Password
+3. Use app password in `MAIL_PASSWORD`
+
+### **Alternative Providers**
+- **Outlook**: `smtp-mail.outlook.com:587`
+- **Yahoo**: `smtp.mail.yahoo.com:587`
+- **Custom SMTP**: Update host, port, and encryption
+
+## 🎯 **Key Features Explained**
+
+### **Loading Page**
+- Shows for 2 seconds on first visit
+- Branded animation with logo
+- Full-screen overlay
+- Responsive design
+
+### **Portfolio Grid**
+- Dynamic 2x2 layout
+- Varying item sizes (large, tall, wide, normal)
+- Video backgrounds for each project
+- Modal popup for "View All Projects"
+
+### **Contact Form**
+- AJAX submission
+- SMTP email delivery
+- Professional email template
+- Form validation
+- Success/error feedback
+
+### **Responsive Design**
+- Mobile-first approach
+- Breakpoints: 1024px, 768px, 480px, 360px
+- Touch-friendly navigation
+- Optimized video loading
+
+## 🔧 **Technical Details**
+
+### **Technologies Used**
+- **Backend**: Laravel 10
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Email**: Laravel Mail with SMTP
+- **Database**: MySQL
+- **Assets**: Laravel Mix
+
+### **Performance Optimizations**
+- Video compression for web
+- Responsive images
+- CSS/JS minification
+- Lazy loading for videos
+
+## 📱 **Browser Support**
+- Chrome 80+
+- Firefox 75+
+- Safari 13+
+- Edge 80+
+- Mobile browsers
+
+## 🚀 **Deployment**
+
+### **Production Checklist**
+1. Set `APP_ENV=production` in `.env`
+2. Run `php artisan config:cache`
+3. Compile assets with `npm run build`
+4. Set up SSL certificate
+5. Configure production SMTP
+6. Optimize images and videos
+
+### **Server Requirements**
+- PHP 8.0+
+- MySQL 5.7+
+- Apache/Nginx
+- SSL certificate
+- SMTP access
+
+## 📞 **Support**
+
+For technical support or customization requests, contact the development team.
+
+---
+
+**© 2024 offthegridgh. All rights reserved.**
