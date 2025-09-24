@@ -61,8 +61,8 @@
                 <a href="{{ route('about') }}" class="btn-primary">Read More About Me</a>
             </div>
             <div style="text-align: center;">
-                <div class="about-image" style="width: 300px; height: 400px; background: linear-gradient(135deg, #FF0000, #000000); border-radius: 10px; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.2rem; font-weight: 600;">
-                    Profile Image Placeholder
+                <div class="about-image" style="width: 300px; height: 400px; border-radius: 10px; margin: 0 auto; overflow: hidden; border: 2px solid rgba(255, 0, 0, 0.3);">
+                    <img src="{{ asset('about-photo.jpg') }}" alt="Professional Photo" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -256,7 +256,7 @@
                         
                         <!-- View Button -->
                         <div style="text-align: center;">
-                            <button style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" 
+                            <button onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')" style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" 
                                     onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" 
                                     onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">
                                 View Project
@@ -339,11 +339,7 @@
 <!-- Footer -->
 <footer style="background: #000000; padding: 2rem 0; border-top: 1px solid rgba(255, 0, 0, 0.2);">
     <div class="container" style="text-align: center;">
-        <p style="opacity: 0.8; margin-bottom: 1rem;">© 2024 Video Editor Portfolio. All rights reserved.</p>
-        <div class="footer-links" style="display: flex; justify-content: center; gap: 2rem;">
-            <a href="#" style="color: #FF0000; text-decoration: none;">Privacy Policy</a>
-            <a href="#" style="color: #FF0000; text-decoration: none;">Terms of Service</a>
-        </div>
+        <p style="opacity: 0.8; margin-bottom: 1rem;">© 2024 offthegridgh. All rights reserved.</p>
     </div>
 </footer>
 
@@ -398,7 +394,7 @@
                         
                         <!-- View Button -->
                         <div style="text-align: center;">
-                            <button style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.8rem;" 
+                            <button onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')" style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.8rem;" 
                                     onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" 
                                     onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">
                                 View Project
@@ -408,6 +404,30 @@
                 </div>
             </div>
             @endforeach
+        </div>
+    </div>
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10001; backdrop-filter: blur(10px);">
+    <div class="video-modal-content" style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem;">
+        <!-- Close Button -->
+        <button onclick="closeVideoModal()" style="position: absolute; top: 2rem; right: 2rem; background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 12px 18px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease; z-index: 10002;" onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">×</button>
+        
+        <!-- Video Container -->
+        <div class="video-container" style="position: relative; width: 90%; max-width: 1200px; height: 70vh; max-height: 600px; background: #000000; border-radius: 15px; overflow: hidden; border: 2px solid rgba(255, 0, 0, 0.3);">
+            <!-- Video Element -->
+            <video id="modalVideo" controls autoplay style="width: 100%; height: 100%; object-fit: cover;">
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Video Info Overlay -->
+            <div class="video-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); padding: 2rem; color: #FFFFFF;">
+                <h3 id="modalVideoTitle" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #FF0000;"></h3>
+                <p id="modalVideoClient" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem;"></p>
+                <p id="modalVideoCategory" style="font-size: 1rem; opacity: 0.8;"></p>
+            </div>
         </div>
     </div>
 </div>

@@ -36,8 +36,8 @@
                 </p>
             </div>
             <div style="text-align: center;">
-                <div class="about-profile-image" style="width: 100%; height: 400px; background: linear-gradient(135deg, #FF0000, #000000); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 1.2rem; font-weight: 600; margin-bottom: 2rem;">
-                    Professional Photo Placeholder
+                <div class="about-profile-image" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; position: relative; margin-bottom: 2rem; border: 2px solid rgba(255, 0, 0, 0.3);">
+                    <img src="{{ asset('about-photo.jpg') }}" alt="Professional Photo" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
                     <div style="text-align: center;">

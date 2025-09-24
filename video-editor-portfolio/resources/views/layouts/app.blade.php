@@ -385,7 +385,8 @@
                 gap: 2rem !important;
             }
 
-            .about-profile-image {
+            .about-profile-image,
+            .about-profile-video {
                 width: 100% !important;
                 max-width: 300px !important;
                 height: 300px !important;
@@ -508,8 +509,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: #000000;
             display: flex;
             flex-direction: column;
@@ -518,6 +519,7 @@
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
             padding: 2rem;
+            box-sizing: border-box;
         }
 
         .loading-page.fade-out {
@@ -531,6 +533,7 @@
             margin-bottom: 2rem;
             animation: logoFloat 2s ease-in-out infinite;
             max-width: 100%;
+            display: block;
         }
 
         .loading-brand {
@@ -540,6 +543,8 @@
             margin-bottom: 1rem;
             animation: brandPulse 2s ease-in-out infinite;
             text-align: center;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.2;
         }
 
         .loading-subtitle {
@@ -549,6 +554,8 @@
             margin-bottom: 3rem;
             animation: fadeInOut 3s ease-in-out infinite;
             text-align: center;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
         }
 
         .loading-spinner {
@@ -558,6 +565,7 @@
             border-top: 3px solid #FF0000;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            display: block;
         }
 
         @keyframes logoFloat {
@@ -715,6 +723,74 @@
 
             .modal-portfolio-item {
                 height: 200px !important;
+            }
+        }
+
+        /* Video Modal Styles */
+        .video-modal-overlay {
+            animation: videoModalFadeIn 0.3s ease;
+        }
+
+        .video-modal-content {
+            animation: videoModalSlideIn 0.3s ease;
+        }
+
+        @keyframes videoModalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes videoModalSlideIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Video Modal Responsive */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95% !important;
+                height: 60vh !important;
+                max-height: 400px !important;
+            }
+
+            .video-info {
+                padding: 1.5rem !important;
+            }
+
+            .video-info h3 {
+                font-size: 1.2rem !important;
+            }
+
+            .video-info p {
+                font-size: 1rem !important;
+            }
+
+            .video-info p:last-child {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-container {
+                width: 98% !important;
+                height: 50vh !important;
+                max-height: 300px !important;
+            }
+
+            .video-info {
+                padding: 1rem !important;
+            }
+
+            .video-info h3 {
+                font-size: 1rem !important;
+            }
+
+            .video-info p {
+                font-size: 0.9rem !important;
+            }
+
+            .video-info p:last-child {
+                font-size: 0.8rem !important;
             }
         }
     </style>
@@ -887,6 +963,56 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeProjectsModal();
+                closeVideoModal();
+            }
+        });
+
+        // Video Modal Functions
+        function openVideoModal(title, client, category, videoSrc) {
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalVideoSource = document.getElementById('modalVideoSource');
+            const modalVideoTitle = document.getElementById('modalVideoTitle');
+            const modalVideoClient = document.getElementById('modalVideoClient');
+            const modalVideoCategory = document.getElementById('modalVideoCategory');
+
+            // Set video source
+            modalVideoSource.src = videoSrc;
+            modalVideo.load();
+
+            // Set video info
+            modalVideoTitle.textContent = title;
+            modalVideoClient.textContent = client;
+            modalVideoCategory.textContent = category;
+
+            // Show modal
+            videoModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+            // Play video when modal opens
+            modalVideo.play().catch(function(error) {
+                console.log('Video autoplay failed:', error);
+            });
+        }
+
+        function closeVideoModal() {
+            const videoModal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+
+            // Pause video
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+
+            // Hide modal
+            videoModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close video modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const videoModal = document.getElementById('videoModal');
+            if (event.target === videoModal) {
+                closeVideoModal();
             }
         });
     </script>
