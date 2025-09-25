@@ -504,181 +504,60 @@
             padding: 0 15px;
         }
 
-        /* Loading Page Styles */
-        .loading-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-            padding: 2rem;
-            box-sizing: border-box;
-            margin: 0;
-            overflow: hidden;
+        /* Testimonials Section Styles */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
-        .loading-page.fade-out {
-            opacity: 0;
-            visibility: hidden;
+        /* Testimonial Modal Video Styles */
+        #modalTestimonialVideo {
+            border-radius: 15px;
         }
 
-        .loading-logo {
-            height: 80px;
-            width: auto;
-            margin-bottom: 2rem;
-            animation: logoFloat 2s ease-in-out infinite;
-            max-width: 100%;
-            display: block;
+        #modalTestimonialVideo::-webkit-media-controls-panel {
+            background: rgba(0, 0, 0, 0.8);
         }
 
-        .loading-brand {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #FF0000;
-            margin-bottom: 1rem;
-            animation: brandPulse 2s ease-in-out infinite;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.2;
-        }
-
-        .loading-subtitle {
-            font-size: 1.2rem;
-            color: #FFFFFF;
-            opacity: 0.8;
-            margin-bottom: 3rem;
-            animation: fadeInOut 3s ease-in-out infinite;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.4;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 0, 0, 0.3);
-            border-top: 3px solid #FF0000;
+        #modalTestimonialVideo::-webkit-media-controls-play-button,
+        #modalTestimonialVideo::-webkit-media-controls-pause-button {
+            background: #FF0000;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: block;
         }
 
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        @keyframes brandPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
         }
 
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 0.4; }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Mobile Loading Page */
-        @media (max-width: 1024px) {
-            .loading-page {
-                padding: 1.5rem;
-            }
-
-            .loading-logo {
-                height: 70px;
-            }
-
-            .loading-brand {
-                font-size: 2.2rem;
-            }
-
-            .loading-subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
+        /* Responsive Testimonials */
         @media (max-width: 768px) {
-            .loading-page {
-                padding: 1rem;
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-
-            .loading-logo {
-                height: 60px;
-                margin-bottom: 1.5rem;
-            }
-
-            .loading-brand {
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .loading-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .loading-spinner {
-                width: 40px;
-                height: 40px;
+            
+            .testimonial-card {
+                height: 350px;
             }
         }
 
         @media (max-width: 480px) {
-            .loading-page {
-                padding: 0.5rem;
+            .testimonials-grid {
+                gap: 1rem;
             }
-
-            .loading-logo {
-                height: 50px;
-                margin-bottom: 1rem;
-            }
-
-            .loading-brand {
-                font-size: 1.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .loading-subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .loading-spinner {
-                width: 35px;
-                height: 35px;
+            
+            .testimonial-card {
+                height: 300px;
             }
         }
 
-        @media (max-width: 360px) {
-            .loading-logo {
-                height: 40px;
-            }
 
-            .loading-brand {
-                font-size: 1.2rem;
-            }
-
-            .loading-subtitle {
-                font-size: 0.8rem;
-            }
-
-            .loading-spinner {
-                width: 30px;
-                height: 30px;
-            }
-        }
 
         /* Modal Styles */
         .modal-overlay {
@@ -715,6 +594,16 @@
             .modal-portfolio-item {
                 height: 250px !important;
             }
+
+            /* Testimonial Modal Mobile */
+            #testimonialModal .modal-content {
+                max-width: 95%;
+                padding: 2rem 1.5rem;
+            }
+
+            #testimonialModal .modal-content > div:first-child {
+                height: 300px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -722,6 +611,16 @@
                 margin: 0.5rem;
                 padding: 1rem;
             }
+
+            /* Testimonial Modal Small Mobile */
+            #testimonialModal .modal-content {
+                padding: 1.5rem 1rem;
+            }
+
+            #testimonialModal .modal-content > div:first-child {
+                height: 200px;
+            }
+        }
 
             .modal-portfolio-item {
                 height: 200px !important;
@@ -798,13 +697,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Page -->
-    <div class="loading-page" id="loadingPage">
-        <img src="{{ asset('logo/Red-on-black1.jpg') }}" alt="Off The Grid GH Logo" class="loading-logo">
-        <h1 class="loading-brand">offthegridgh</h1>
-        <p class="loading-subtitle">Creative Video Editing</p>
-        <div class="loading-spinner"></div>
-    </div>
 
     <nav class="navbar">
         <div class="container">
@@ -854,34 +746,6 @@
             });
         });
 
-        // Loading page functionality
-        let loadingStartTime = Date.now();
-        
-        window.addEventListener('load', function() {
-            const loadingPage = document.getElementById('loadingPage');
-            const elapsedTime = Date.now() - loadingStartTime;
-            const remainingTime = Math.max(0, 2000 - elapsedTime); // Ensure minimum 2 seconds total
-            
-            setTimeout(function() {
-                loadingPage.classList.add('fade-out');
-                
-                // Remove loading page from DOM after fade out
-                setTimeout(function() {
-                    loadingPage.style.display = 'none';
-                }, 500);
-            }, remainingTime);
-        });
-
-        // Fallback: Hide loading page after maximum 3 seconds regardless
-        setTimeout(function() {
-            const loadingPage = document.getElementById('loadingPage');
-            if (loadingPage && loadingPage.style.display !== 'none') {
-                loadingPage.classList.add('fade-out');
-                setTimeout(function() {
-                    loadingPage.style.display = 'none';
-                }, 500);
-            }
-        }, 3000);
 
         // Video fallback handling
         document.addEventListener('DOMContentLoaded', function() {
@@ -1001,9 +865,11 @@
             const videoModal = document.getElementById('videoModal');
             const modalVideo = document.getElementById('modalVideo');
 
-            // Pause video
-            modalVideo.pause();
-            modalVideo.currentTime = 0;
+            // Pause and reset video
+            if (modalVideo && !modalVideo.paused) {
+                modalVideo.pause();
+                modalVideo.currentTime = 0;
+            }
 
             // Hide modal
             videoModal.style.display = 'none';
@@ -1015,6 +881,132 @@
             const videoModal = document.getElementById('videoModal');
             if (event.target === videoModal) {
                 closeVideoModal();
+            }
+        });
+
+        // Testimonial modal functions
+        function openTestimonialModal(testimonialId) {
+            const modal = document.getElementById('testimonialModal');
+            const testimonials = [
+                {
+                    id: 1,
+                    name: 'Sarah Johnson',
+                    company: 'Tech Solutions Inc.',
+                    role: 'Marketing Director',
+                    video: '{{ asset("videos/testimonials/em-testimonial.mp4") }}',
+                    fallback: 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
+                    quote: 'offthegridgh transformed our brand story into a compelling visual narrative. Their attention to detail and creative vision exceeded our expectations.',
+                    rating: 5
+                },
+                {
+                    id: 2,
+                    name: 'Michael Chen',
+                    company: 'Restaurant Group',
+                    role: 'Owner',
+                    video: '{{ asset("videos/testimonials/emi-testimonial.mp4") }}',
+                    fallback: 'linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%)',
+                    quote: 'The video they created for our restaurant launch was absolutely stunning. It perfectly captured our brand essence and increased our bookings by 40%.',
+                    rating: 5
+                },
+                {
+                    id: 3,
+                    name: 'Emily Rodriguez',
+                    company: 'Fashion Brand',
+                    role: 'Creative Director',
+                    video: '{{ asset("videos/testimonials/emil-testimonial.mp4") }}',
+                    fallback: 'linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%)',
+                    quote: 'Working with offthegridgh was a game-changer. They understood our vision and brought it to life in ways we never imagined possible.',
+                    rating: 5
+                },
+                {
+                    id: 4,
+                    name: 'David Thompson',
+                    company: 'Real Estate Agency',
+                    role: 'CEO',
+                    video: '{{ asset("videos/testimonials/emily-testimonial.mp4") }}',
+                    fallback: 'linear-gradient(135deg, #2F4F4F 0%, #556B2F 50%, #8FBC8F 100%)',
+                    quote: 'Their real estate videos helped us close 60% more deals. The quality and professionalism of their work speaks for itself.',
+                    rating: 5
+                }
+            ];
+
+            const testimonial = testimonials.find(t => t.id === testimonialId);
+            if (!testimonial) return;
+
+            // Update modal content
+            document.getElementById('modalTestimonialQuote').textContent = testimonial.quote;
+            document.getElementById('modalTestimonialName').textContent = testimonial.name;
+            document.getElementById('modalTestimonialRole').textContent = testimonial.role;
+            document.getElementById('modalTestimonialCompany').textContent = testimonial.company;
+
+            // Update video
+            const video = document.getElementById('modalTestimonialVideo');
+            const fallback = document.getElementById('modalTestimonialFallback');
+            
+            // Reset video
+            video.style.display = 'block';
+            fallback.style.display = 'none';
+            
+            // Set video source
+            video.src = testimonial.video;
+            fallback.style.background = testimonial.fallback;
+
+            // Handle video error
+            video.onerror = function() {
+                video.style.display = 'none';
+                fallback.style.display = 'flex';
+            };
+
+            // Handle video load
+            video.onloadeddata = function() {
+                video.style.display = 'block';
+                fallback.style.display = 'none';
+            };
+
+            // Set a timeout to show fallback if video doesn't load
+            setTimeout(function() {
+                if (video.readyState === 0) {
+                    video.style.display = 'none';
+                    fallback.style.display = 'flex';
+                }
+            }, 2000);
+
+            // Update rating
+            const ratingContainer = document.getElementById('modalTestimonialRating');
+            ratingContainer.innerHTML = '';
+            for (let i = 0; i < testimonial.rating; i++) {
+                const star = document.createElement('span');
+                star.style.color = '#FFD700';
+                star.style.fontSize = '1.5rem';
+                star.style.marginRight = '0.3rem';
+                star.textContent = '★';
+                ratingContainer.appendChild(star);
+            }
+
+            // Show modal
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeTestimonialModal() {
+            const modal = document.getElementById('testimonialModal');
+            const video = document.getElementById('modalTestimonialVideo');
+            
+            // Pause and reset the video
+            if (video && !video.paused) {
+                video.pause();
+                video.currentTime = 0; // Reset to beginning
+            }
+            
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close testimonial modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const testimonialModal = document.getElementById('testimonialModal');
+            if (event.target === testimonialModal) {
+                closeTestimonialModal();
             }
         });
 
