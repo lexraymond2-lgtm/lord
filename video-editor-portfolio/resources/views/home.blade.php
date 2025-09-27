@@ -25,178 +25,6 @@
     </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title">
-            About <span class="text-red">offthegridgh</span>
-        </h2>
-        <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div>
-                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #FF0000;">Creative Video Production Studio</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">
-                    We're a dynamic video production startup that specializes in creating compelling visual stories 
-                    for modern brands. Our team combines creative vision with cutting-edge technology to deliver 
-                    exceptional video content that drives engagement and achieves business objectives.
-                </p>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
-                    From corporate communications to music videos and social media content, we bring fresh perspectives 
-                    and innovative techniques to every project. Our collaborative approach ensures that your vision 
-                    becomes a compelling visual reality.
-                </p>
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
-                    <div>
-                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">3+ Years</h4>
-                        <p style="opacity: 0.8;">Company Experience</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">150+</h4>
-                        <p style="opacity: 0.8;">Projects Delivered</p>
-                    </div>
-                    <div>
-                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">100%</h4>
-                        <p style="opacity: 0.8;">Client Satisfaction</p>
-                    </div>
-                </div>
-                <a href="{{ route('about') }}" class="btn-primary">Learn More About Us</a>
-            </div>
-            <div style="text-align: center;">
-                <div class="about-image" style="width: 300px; height: 400px; border-radius: 10px; margin: 0 auto; overflow: hidden; border: 2px solid rgba(255, 0, 0, 0.3);">
-                    <img src="{{ asset('about-photo.jpg') }}" alt="Team Photo" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section class="section" style="background: rgba(255, 0, 0, 0.05); padding: 0;">
-    <div style="width: 100vw; max-width: 100vw; margin: 0; padding: 0;">
-        <div style="text-align: center; padding: 4rem 2rem 2rem;">
-            <h2 class="section-title" style="margin-bottom: 3rem;">
-                Our <span class="text-red">Services</span>
-            </h2>
-        </div>
-        
-        <div class="services-grid" style="display: grid; grid-template-columns: 1fr; gap: 0;">
-            <!-- Commercials Service -->
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
-                <!-- Video Background -->
-                <video class="service-video" 
-                       autoplay muted loop 
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <source src="{{ asset('videos/portfolio/corporate.mp4') }}" type="video/mp4">
-                </video>
-                
-                <!-- Fallback Background -->
-                <div class="service-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%); z-index: 1;"></div>
-                
-                <!-- Overlay -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
-                
-                <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">COMMERCIALS</h3>
-                    
-                </div>
-            </div>
-
-            <!-- Testimonials Service -->
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
-                <!-- Video Background -->
-                <video class="service-video" 
-                       autoplay muted loop 
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <source src="{{ asset('videos/testimonials/em-testimonial.mp4') }}" type="video/mp4">
-                </video>
-                
-                <!-- Fallback Background -->
-                <div class="service-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%); z-index: 1;"></div>
-                
-                <!-- Overlay -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
-                
-                <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">TESTIMONIALS</h3>
-                   
-                </div>
-            </div>
-
-            <!-- Product Videos Service -->
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
-                <!-- Video Background -->
-                <video class="service-video" 
-                       autoplay muted loop 
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <source src="{{ asset('videos/portfolio/wine-dine.mp4') }}" type="video/mp4">
-                </video>
-                
-                <!-- Fallback Background -->
-                <div class="service-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #2F4F4F 0%, #556B2F 50%, #8FBC8F 100%); z-index: 1;"></div>
-                
-                <!-- Overlay -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
-                
-                <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">PRODUCT VIDEOS</h3>
-                   
-                </div>
-            </div>
-
-            <!-- Documentary Service -->
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
-                <!-- Video Background -->
-                <video class="service-video" 
-                       autoplay muted loop 
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <source src="{{ asset('videos/portfolio/motion.mp4') }}" type="video/mp4">
-                </video>
-                
-                <!-- Fallback Background -->
-                <div class="service-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%); z-index: 1;"></div>
-                
-                <!-- Overlay -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
-                
-                <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">DOCUMENTARY</h3>
-                   
-                </div>
-            </div>
-
-            <!-- Brand Films Service -->
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
-                <!-- Video Background -->
-                <video class="service-video" 
-                       autoplay muted loop 
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                    <source src="{{ asset('videos/portfolio/music.mp4') }}" type="video/mp4">
-                </video>
-                
-                <!-- Fallback Background -->
-                <div class="service-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%); z-index: 1;"></div>
-                
-                <!-- Overlay -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
-                
-                <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BRAND FILMS</h3>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Testimonials Section -->
 <section class="section" style="background: rgba(0, 0, 0, 0.8);">
     <div class="container">
@@ -293,6 +121,132 @@
         </div>
     </div>
 </section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">
+            About <span class="text-red">offthegridgh</span>
+        </h2>
+        <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #FF0000;">Creative Video Production Studio</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">
+                    We're a dynamic video production startup that specializes in creating compelling visual stories 
+                    for modern brands. Our team combines creative vision with cutting-edge technology to deliver 
+                    exceptional video content that drives engagement and achieves business objectives.
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
+                    From corporate communications to music videos and social media content, we bring fresh perspectives 
+                    and innovative techniques to every project. Our collaborative approach ensures that your vision 
+                    becomes a compelling visual reality.
+                </p>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <div>
+                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">3+ Years</h4>
+                        <p style="opacity: 0.8;">Company Experience</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">150+</h4>
+                        <p style="opacity: 0.8;">Projects Delivered</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">100%</h4>
+                        <p style="opacity: 0.8;">Client Satisfaction</p>
+                    </div>
+                </div>
+                <a href="{{ route('about') }}" class="btn-primary">Learn More About Us</a>
+            </div>
+            <div style="text-align: center;">
+                <div class="about-image" style="width: 300px; height: 400px; border-radius: 10px; margin: 0 auto; overflow: hidden; border: 2px solid rgba(255, 0, 0, 0.3);">
+                    <img src="{{ asset('about-photo.jpg') }}" alt="Team Photo" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section" style="background: rgba(255, 0, 0, 0.05); padding: 0;">
+    <div style="width: 100vw; max-width: 100vw; margin: 0; padding: 0;">
+        <div style="text-align: center; padding: 4rem 2rem 2rem;">
+            <h2 class="section-title" style="margin-bottom: 3rem;">
+                Our <span class="text-red">Services</span>
+            </h2>
+        </div>
+        
+        @php
+        $services = [
+            [
+                'id' => 1,
+                'title' => 'COMMERCIALS',
+                'video' => '/videos/services/commercials.mp4',
+                'fallback' => 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
+                'border' => 'border-bottom: 2px solid rgba(255, 0, 0, 0.3);'
+            ],
+            [
+                'id' => 2,
+                'title' => 'TESTIMONIALS',
+                'video' => '/videos/services/testimonials.mp4',
+                'fallback' => 'linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%)',
+                'border' => 'border-bottom: 2px solid rgba(255, 0, 0, 0.3);'
+            ],
+            [
+                'id' => 3,
+                'title' => 'PRODUCT VIDEOS',
+                'video' => '/videos/services/product-videos.mp4',
+                'fallback' => 'linear-gradient(135deg, #2F4F4F 0%, #556B2F 50%, #8FBC8F 100%)',
+                'border' => 'border-bottom: 2px solid rgba(255, 0, 0, 0.3);'
+            ],
+            [
+                'id' => 4,
+                'title' => 'DOCUMENTARY',
+                'video' => '/videos/services/documentary.mp4',
+                'fallback' => 'linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%)',
+                'border' => 'border-bottom: 2px solid rgba(255, 0, 0, 0.3);'
+            ],
+            [
+                'id' => 5,
+                'title' => 'BRAND FILMS',
+                'video' => '/videos/services/brand-films.mp4',
+                'fallback' => 'linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%)',
+                'border' => ''
+            ]
+        ];
+        @endphp
+
+        <div class="services-grid" style="display: grid; grid-template-columns: 1fr; gap: 0;">
+            @foreach($services as $service)
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; {{ $service['border'] }}"
+                 onmouseenter="this.querySelector('video').play()" onmouseleave="this.querySelector('video').pause()">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       muted loop preload="metadata"
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"
+                       onerror="console.log('Video error:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';"
+                       onload="console.log('Video loaded successfully:', this.src);"
+                       onloadstart="console.log('Video loading started:', this.src);"
+                       oncanplay="console.log('Video can play:', this.src);">
+                    <source src="{{ $service['video'] }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $service['fallback'] }}; z-index: 1; display: none;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">{{ $service['title'] }}</h3>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
 <!-- Work Portfolio Section -->
 <section id="work" class="section" style="padding: 0;">
@@ -393,19 +347,20 @@
             @foreach($projects as $project)
             <div class="portfolio-item" 
                  style="grid-area: {{ $project['gridArea'] }}; position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3);" 
-                 onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000';" 
-                 onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)';">
+                 onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000'; this.querySelector('video').play();" 
+                 onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)'; this.querySelector('video').pause();"
+                 onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')">
                 
                 <!-- Video Background -->
                 <video class="portfolio-video" 
-                       autoplay muted loop 
+                       muted loop preload="metadata"
                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                     <source src="{{ asset($project['video']) }}" type="video/mp4">
                 </video>
                 
                 <!-- Fallback Background -->
                 <div class="portfolio-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $project['fallback'] }}; z-index: 1;"></div>
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $project['fallback'] }}; z-index: 1; display: none;"></div>
                 
                 <!-- Overlay -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
@@ -421,22 +376,7 @@
                     
                     <!-- Bottom Content -->
                     <div style="align-self: flex-end; text-align: right;">
-                        <div style="background: rgba(0, 0, 0, 0.8); padding: 12px 20px; border-radius: 25px; margin-bottom: 1rem;">
-                            <h3 style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">{{ $project['client'] }}</h3>
-                            <p style="color: #FF0000; font-size: 0.9rem; font-weight: 600; margin: 0;">{{ $project['category'] }}</p>
-                        </div>
-                        
-                        <!-- Icon -->
-                        <div style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">{{ $project['icon'] }}</div>
-                        
-                        <!-- View Button -->
-                        <div style="text-align: center;">
-                            <button onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')" style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" 
-                                    onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" 
-                                    onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">
-                                View Project
-                            </button>
-                        </div>
+                        <!-- Empty space for clean look -->
                     </div>
                 </div>
             </div>
@@ -537,18 +477,21 @@
         <!-- All Projects Grid -->
         <div class="modal-projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             @foreach($allProjects as $project)
-            <div class="modal-portfolio-item" style="position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3); height: 300px;" onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000';" onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)';">
+            <div class="modal-portfolio-item" style="position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3); height: 300px;" 
+                 onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000'; this.querySelector('video').play();" 
+                 onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)'; this.querySelector('video').pause();"
+                 onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')">
                 
                 <!-- Video Background -->
                 <video class="modal-portfolio-video" 
-                       autoplay muted loop 
+                       muted loop preload="metadata"
                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                     <source src="{{ asset($project['video']) }}" type="video/mp4">
                 </video>
                 
                 <!-- Fallback Background -->
                 <div class="modal-portfolio-fallback" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $project['fallback'] }}; z-index: 1;"></div>
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{ $project['fallback'] }}; z-index: 1; display: none;"></div>
                 
                 <!-- Overlay -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
@@ -564,22 +507,7 @@
                     
                     <!-- Bottom Content -->
                     <div style="align-self: flex-end; text-align: right;">
-                        <div style="background: rgba(0, 0, 0, 0.8); padding: 8px 16px; border-radius: 20px; margin-bottom: 1rem;">
-                            <h3 style="color: #FFFFFF; font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;">{{ $project['client'] }}</h3>
-                            <p style="color: #FF0000; font-size: 0.8rem; font-weight: 600; margin: 0;">{{ $project['category'] }}</p>
-                        </div>
-                        
-                        <!-- Icon -->
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">{{ $project['icon'] }}</div>
-                        
-                        <!-- View Button -->
-                        <div style="text-align: center;">
-                            <button onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')" style="background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.8rem;" 
-                                    onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" 
-                                    onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">
-                                View Project
-                            </button>
-                        </div>
+                        <!-- Empty space for clean look -->
                     </div>
                 </div>
             </div>
