@@ -70,50 +70,128 @@
 </section>
 
 <!-- Services Section -->
-<section class="section" style="background: rgba(255, 0, 0, 0.05);">
-    <div class="container">
-        <h2 class="section-title">
-            Our <span class="text-red">Services</span>
-        </h2>
-        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 0, 0, 0.2);">
-                <h3 style="color: #FF0000; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Video Editing</h3>
-                <p style="opacity: 0.9; margin-bottom: 1.5rem;">
-                    Professional video editing services including color correction, audio mixing, 
-                    transitions, and effects to create polished final products.
-                </p>
-                <ul style="list-style: none; opacity: 0.8;">
-                    <li style="margin-bottom: 0.5rem;">• Color Grading & Correction</li>
-                    <li style="margin-bottom: 0.5rem;">• Audio Mixing & Mastering</li>
-                    <li style="margin-bottom: 0.5rem;">• Motion Graphics & Effects</li>
-                    <li style="margin-bottom: 0.5rem;">• Multi-camera Editing</li>
-                </ul>
+<section class="section" style="background: rgba(255, 0, 0, 0.05); padding: 0;">
+    <div style="width: 100vw; max-width: 100vw; margin: 0; padding: 0;">
+        <div style="text-align: center; padding: 4rem 2rem 2rem;">
+            <h2 class="section-title" style="margin-bottom: 3rem;">
+                Our <span class="text-red">Services</span>
+            </h2>
+        </div>
+        
+        <div class="services-grid" style="display: grid; grid-template-columns: 1fr; gap: 0;">
+            <!-- Commercials Service -->
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset('videos/portfolio/corporate.mp4') }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%); z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">COMMERCIALS</h3>
+                    
+                </div>
             </div>
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 0, 0, 0.2);">
-                <h3 style="color: #FF0000; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Post-Production</h3>
-                <p style="opacity: 0.9; margin-bottom: 1.5rem;">
-                    Complete post-production services from raw footage to final delivery, 
-                    ensuring your content meets professional standards.
-                </p>
-                <ul style="list-style: none; opacity: 0.8;">
-                    <li style="margin-bottom: 0.5rem;">• Raw Footage Processing</li>
-                    <li style="margin-bottom: 0.5rem;">• Advanced Compositing</li>
-                    <li style="margin-bottom: 0.5rem;">• Title & Graphics Design</li>
-                    <li style="margin-bottom: 0.5rem;">• Final Export & Delivery</li>
-                </ul>
+
+            <!-- Testimonials Service -->
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset('videos/testimonials/em-testimonial.mp4') }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%); z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">TESTIMONIALS</h3>
+                   
+                </div>
             </div>
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 0, 0, 0.2);">
-                <h3 style="color: #FF0000; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Creative Direction</h3>
-                <p style="opacity: 0.9; margin-bottom: 1.5rem;">
-                    Strategic creative direction and storytelling to ensure your video 
-                    content effectively communicates your message and engages your audience.
-                </p>
-                <ul style="list-style: none; opacity: 0.8;">
-                    <li style="margin-bottom: 0.5rem;">• Story Development</li>
-                    <li style="margin-bottom: 0.5rem;">• Visual Style Guide</li>
-                    <li style="margin-bottom: 0.5rem;">• Brand Integration</li>
-                    <li style="margin-bottom: 0.5rem;">• Content Strategy</li>
-                </ul>
+
+            <!-- Product Videos Service -->
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset('videos/portfolio/wine-dine.mp4') }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #2F4F4F 0%, #556B2F 50%, #8FBC8F 100%); z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">PRODUCT VIDEOS</h3>
+                   
+                </div>
+            </div>
+
+            <!-- Documentary Service -->
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; border-bottom: 2px solid rgba(255, 0, 0, 0.3);">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset('videos/portfolio/motion.mp4') }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%); z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">DOCUMENTARY</h3>
+                   
+                </div>
+            </div>
+
+            <!-- Brand Films Service -->
+            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
+                <!-- Video Background -->
+                <video class="service-video" 
+                       autoplay muted loop 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                    <source src="{{ asset('videos/portfolio/music.mp4') }}" type="video/mp4">
+                </video>
+                
+                <!-- Fallback Background -->
+                <div class="service-fallback" 
+                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #228B22 0%, #32CD32 50%, #90EE90 100%); z-index: 1;"></div>
+                
+                <!-- Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); z-index: 2;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
+                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BRAND FILMS</h3>
+                    
+                </div>
             </div>
         </div>
     </div>
