@@ -217,16 +217,13 @@
 
         <div class="services-grid" style="display: grid; grid-template-columns: 1fr; gap: 0;">
             @foreach($services as $service)
-            <div class="service-item" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; {{ $service['border'] }}"
+            <div class="service-item" style="width: 100vw; height: clamp(60vh, 100vh, 100vh); position: relative; overflow: hidden; {{ $service['border'] }}"
                  onmouseenter="this.querySelector('video').play()" onmouseleave="this.querySelector('video').pause()">
                 <!-- Video Background -->
                 <video class="service-video" 
                        muted loop preload="metadata"
                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"
-                       onerror="console.log('Video error:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';"
-                       onload="console.log('Video loaded successfully:', this.src);"
-                       onloadstart="console.log('Video loading started:', this.src);"
-                       oncanplay="console.log('Video can play:', this.src);">
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <source src="{{ $service['video'] }}" type="video/mp4">
                 </video>
                 
@@ -238,8 +235,8 @@
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%); z-index: 2;"></div>
                 
                 <!-- Content -->
-                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center;">
-                    <h3 style="color: #FF0000; font-size: 4rem; font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">{{ $service['title'] }}</h3>
+                <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: clamp(1rem, 3vw, 2rem); text-align: center;">
+                    <h3 style="color: #FF0000; font-size: clamp(1.8rem, 6vw, 4rem); font-weight: 800; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); line-height: 1.1;">{{ $service['title'] }}</h3>
                 </div>
             </div>
             @endforeach
