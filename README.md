@@ -136,6 +136,53 @@ $allProjects = [
 ];
 ```
 
+### **Adding New Testimonials**
+Edit the `$testimonials` array in `resources/views/home.blade.php`:
+
+```php
+$testimonials = [
+    [
+        'id' => 1,
+        'name' => 'Client Name',
+        'company' => 'Company Name',
+        'role' => 'Job Title',
+        'video' => 'videos/testimonials/testimonial-video.mp4',
+        'fallback' => 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
+        'quote' => 'Client testimonial text here...',
+        'rating' => 5
+    ],
+    // Add more testimonials...
+];
+```
+
+**Testimonial Requirements:**
+- **Video**: Place testimonial videos in `public/videos/testimonials/`
+- **Fallback**: Use gradient colors for video fallback
+- **Rating**: Use 1-5 stars (integer value)
+- **Quote**: Keep testimonials concise and impactful
+
+### **Adding New Services**
+Edit the `$services` array in `resources/views/home.blade.php`:
+
+```php
+$services = [
+    [
+        'id' => 1,
+        'title' => 'SERVICE NAME',
+        'video' => '/videos/services/service-video.mp4',
+        'fallback' => 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
+        'border' => 'border-bottom: 2px solid rgba(255, 0, 0, 0.3);'
+    ],
+    // Add more services...
+];
+```
+
+**Service Requirements:**
+- **Video**: Place service videos in `public/videos/services/`
+- **Title**: Use uppercase text for consistency
+- **Fallback**: Use gradient colors for video fallback
+- **Border**: Add border-bottom for all services except the last one
+
 ### **Updating Brand Information**
 - **Logo**: Replace `public/logo/Red-on-black1.jpg`
 - **Brand Name**: Update in `resources/views/layouts/app.blade.php`
@@ -144,7 +191,39 @@ $allProjects = [
 ### **Video Backgrounds**
 - **Hero Video**: Place in `public/videos/hero-video.mp4`
 - **Portfolio Videos**: Add to `public/videos/portfolio/`
+- **Service Videos**: Add to `public/videos/services/`
+- **Testimonial Videos**: Add to `public/videos/testimonials/`
 - **Fallback**: Gradient backgrounds for missing videos
+
+### **Content Management Best Practices**
+
+#### **File Organization**
+```
+public/videos/
+├── hero-video.mp4              # Main hero background
+├── portfolio/                  # Project showcase videos
+│   ├── project-1.mp4
+│   └── project-2.mp4
+├── services/                   # Service showcase videos
+│   ├── commercials.mp4
+│   └── testimonials.mp4
+└── testimonials/               # Client testimonial videos
+    ├── client-1.mp4
+    └── client-2.mp4
+```
+
+#### **Video Optimization**
+- **Format**: Use MP4 format for maximum compatibility
+- **Compression**: Optimize videos for web (keep file sizes reasonable)
+- **Resolution**: 1920x1080 or lower for better loading
+- **Duration**: Keep service videos short (10-30 seconds)
+- **Fallback**: Always provide gradient fallback colors
+
+#### **Content Guidelines**
+- **Testimonials**: Keep quotes under 100 words for readability
+- **Services**: Use clear, descriptive titles
+- **Projects**: Include relevant categories and descriptions
+- **Images**: Use high-quality, professional photos
 
 ## 📧 **SMTP Setup**
 
