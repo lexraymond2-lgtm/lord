@@ -143,7 +143,7 @@
             <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: #FFFFFF;">Ready to Work Together?</h2>
             <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Let's create something amazing together. We'd love to hear about your project.</p>
             <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn-primary">Get In Touch</a>
+                <a href="{{ route('home') }}#contact" class="btn-primary">Get In Touch</a>
                 <a href="{{ route('home') }}#work" class="btn-outline">View Our Work</a>
             </div>
         </div>
