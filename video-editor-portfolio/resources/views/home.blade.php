@@ -437,11 +437,11 @@
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Project Type *</label>
                         <select name="project_type" required style="width: 100%; padding: 12px; background: #000000; border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">
                             <option value="" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Select Project Type</option>
-                            <option value="Corporate Video" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Corporate Video</option>
-                            <option value="Music Video" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Music Video</option>
-                            <option value="Social Media" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Social Media</option>
-                            <option value="Real Estate" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Real Estate</option>
-                            <option value="Automotive" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Automotive</option>
+                            <option value="Commercials" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Commercials</option>
+                            <option value="Testimonials" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Testimonials</option>
+                            <option value="Product Videos" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Product Videos</option>
+                            <option value="Documentary" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Documentary</option>
+                            <option value="Brand Films" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Brand Films</option>
                             <option value="Other" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Other</option>
                         </select>
                     </div>
