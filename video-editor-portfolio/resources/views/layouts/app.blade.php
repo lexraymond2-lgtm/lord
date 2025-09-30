@@ -830,8 +830,56 @@
             if (event.key === 'Escape') {
                 closeProjectsModal();
                 closeVideoModal();
+                closeTeamModal();
             }
         });
+
+        // Video Blur Functions
+        function blurVideo(video) {
+            video.style.filter = 'blur(5px)';
+        }
+
+        function unblurVideo(video) {
+            video.style.filter = 'blur(0px)';
+        }
+
+        // Service Video Functions
+        function playServiceVideo(element) {
+            const video = element.querySelector('video');
+            if (video) {
+                video.play();
+                unblurVideo(video);
+            }
+        }
+
+        function pauseServiceVideo(element) {
+            const video = element.querySelector('video');
+            if (video) {
+                video.pause();
+                blurVideo(video);
+            }
+        }
+
+        // Portfolio Video Functions
+        function playPortfolioVideo(element) {
+            element.style.transform = 'scale(1.02)';
+            element.style.borderColor = '#FF0000';
+            const video = element.querySelector('video');
+            if (video) {
+                video.play();
+                unblurVideo(video);
+            }
+        }
+
+        function pausePortfolioVideo(element) {
+            element.style.transform = 'scale(1)';
+            element.style.borderColor = 'rgba(255, 0, 0, 0.3)';
+            const video = element.querySelector('video');
+            if (video) {
+                video.pause();
+                blurVideo(video);
+            }
+        }
 
         // Video Modal Functions
         function openVideoModal(title, client, category, videoSrc) {
@@ -881,6 +929,31 @@
             const videoModal = document.getElementById('videoModal');
             if (event.target === videoModal) {
                 closeVideoModal();
+            }
+        });
+
+        // Team Modal Functions
+        function openTeamModal() {
+            const teamModal = document.getElementById('teamModal');
+            if (teamModal) {
+                teamModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeTeamModal() {
+            const teamModal = document.getElementById('teamModal');
+            if (teamModal) {
+                teamModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+
+        // Close team modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const teamModal = document.getElementById('teamModal');
+            if (event.target === teamModal) {
+                closeTeamModal();
             }
         });
 

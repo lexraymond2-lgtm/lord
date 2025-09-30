@@ -82,12 +82,13 @@
                 <!-- Video Background -->
                 <div class="testimonial-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
                     <video 
-                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;" 
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; transition: filter 0.3s ease;" 
                         autoplay 
                         muted 
                         loop 
                         playsinline
                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        onpause="blurVideo(this)" onplay="unblurVideo(this)"
                     >
                         <source src="{{ asset($testimonial['video']) }}" type="video/mp4">
                     </video>
@@ -218,12 +219,13 @@
         <div class="services-grid" style="display: grid; grid-template-columns: 1fr; gap: 0;">
             @foreach($services as $service)
             <div class="service-item" style="width: 100vw; height: clamp(60vh, 100vh, 100vh); position: relative; overflow: hidden; {{ $service['border'] }}"
-                 onmouseenter="this.querySelector('video').play()" onmouseleave="this.querySelector('video').pause()">
+                 onmouseenter="playServiceVideo(this)" onmouseleave="pauseServiceVideo(this)">
                 <!-- Video Background -->
                 <video class="service-video" 
                        muted loop preload="metadata"
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"
-                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: filter 0.3s ease;"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                       onpause="blurVideo(this)" onplay="unblurVideo(this)">
                     <source src="{{ $service['video'] }}" type="video/mp4">
                 </video>
                 
@@ -344,14 +346,15 @@
             @foreach($projects as $project)
             <div class="portfolio-item" 
                  style="grid-area: {{ $project['gridArea'] }}; position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3);" 
-                 onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000'; this.querySelector('video').play();" 
-                 onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)'; this.querySelector('video').pause();"
+                 onmouseover="playPortfolioVideo(this)" 
+                 onmouseout="pausePortfolioVideo(this)"
                  onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')">
                 
                 <!-- Video Background -->
                 <video class="portfolio-video" 
                        muted loop preload="metadata"
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: filter 0.3s ease;"
+                       onpause="blurVideo(this)" onplay="unblurVideo(this)">
                     <source src="{{ asset($project['video']) }}" type="video/mp4">
                 </video>
                 
@@ -432,14 +435,14 @@
                     </div>
                     <div style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #FFFFFF;">Project Type *</label>
-                        <select name="project_type" required style="width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem;">
-                            <option value="">Select Project Type</option>
-                            <option value="Corporate Video">Corporate Video</option>
-                            <option value="Music Video">Music Video</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Real Estate">Real Estate</option>
-                            <option value="Automotive">Automotive</option>
-                            <option value="Other">Other</option>
+                        <select name="project_type" required style="width: 100%; padding: 12px; background: #000000; border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 5px; color: #FFFFFF; font-size: 1rem; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">
+                            <option value="" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Select Project Type</option>
+                            <option value="Corporate Video" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Corporate Video</option>
+                            <option value="Music Video" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Music Video</option>
+                            <option value="Social Media" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Social Media</option>
+                            <option value="Real Estate" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Real Estate</option>
+                            <option value="Automotive" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Automotive</option>
+                            <option value="Other" style="background: #000000; color: #FFFFFF; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);">Other</option>
                         </select>
                     </div>
                     <div style="margin-bottom: 2rem;">
@@ -475,14 +478,15 @@
         <div class="modal-projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             @foreach($allProjects as $project)
             <div class="modal-portfolio-item" style="position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; transition: all 0.4s ease; border: 2px solid rgba(255, 0, 0, 0.3); height: 300px;" 
-                 onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='#FF0000'; this.querySelector('video').play();" 
-                 onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(255, 0, 0, 0.3)'; this.querySelector('video').pause();"
+                 onmouseover="playPortfolioVideo(this)" 
+                 onmouseout="pausePortfolioVideo(this)"
                  onclick="openVideoModal('{{ $project['title'] }}', '{{ $project['client'] }}', '{{ $project['category'] }}', '{{ asset($project['video']) }}')">
                 
                 <!-- Video Background -->
                 <video class="modal-portfolio-video" 
                        muted loop preload="metadata"
-                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: filter 0.3s ease;"
+                       onpause="blurVideo(this)" onplay="unblurVideo(this)">
                     <source src="{{ asset($project['video']) }}" type="video/mp4">
                 </video>
                 
@@ -522,7 +526,7 @@
         <!-- Video Container -->
         <div class="video-container" style="position: relative; width: 90%; max-width: 1200px; height: 70vh; max-height: 600px; background: #000000; border-radius: 15px; overflow: hidden; border: 2px solid rgba(255, 0, 0, 0.3);">
             <!-- Video Element -->
-            <video id="modalVideo" controls autoplay style="width: 100%; height: 100%; object-fit: cover;">
+            <video id="modalVideo" controls autoplay style="width: 100%; height: 100%; object-fit: cover; transition: filter 0.3s ease;" onpause="blurVideo(this)" onplay="unblurVideo(this)">
                 <source id="modalVideoSource" src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

@@ -35,6 +35,9 @@
                     Our company philosophy centers around collaboration, creativity, and technical excellence. We believe that 
                     the best videos are born from a perfect blend of artistic vision, technical precision, and strategic thinking.
                 </p>
+                <button onclick="openTeamModal()" class="btn-primary" style="margin-top: 1rem;">
+                    Meet the Team
+                </button>
             </div>
             <div style="text-align: center;">
                 <div class="about-profile-image" style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; position: relative; margin-bottom: 2rem; border: 2px solid rgba(255, 0, 0, 0.3);">
@@ -146,4 +149,79 @@
         </div>
     </div>
 </section>
+
+<!-- Team Modal -->
+<div id="teamModal" class="team-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10001; backdrop-filter: blur(10px); justify-content: center; align-items: center;">
+    <div class="team-modal-content" style="background: #1a1a1a; border-radius: 15px; padding: 2rem; max-width: 1200px; width: 90%; max-height: 80vh; overflow-y: auto; border: 2px solid rgba(255, 0, 0, 0.3); position: relative;">
+        <!-- Close Button -->
+        <button onclick="closeTeamModal()" style="position: absolute; top: 1rem; right: 1rem; background: rgba(255, 0, 0, 0.9); color: #FFFFFF; border: none; padding: 8px 12px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; z-index: 10002;" onmouseover="this.style.background='#FFFFFF'; this.style.color='#FF0000';" onmouseout="this.style.background='rgba(255, 0, 0, 0.9)'; this.style.color='#FFFFFF';">×</button>
+        
+        <!-- Team Header -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #FFFFFF;">
+                Meet Our <span style="color: #FF0000;">Team</span>
+            </h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; color: #FFFFFF;">The creative minds behind offthegridgh</p>
+        </div>
+        
+        <!-- Team Grid -->
+        <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            @php
+            $teamMembers = [
+                [
+                    'name' => 'Alex Johnson',
+                    'position' => 'Creative Director & Founder',
+                    'image' => 'team/alex-johnson.jpg',
+                    'skills' => ['Creative Direction', 'Brand Strategy', 'Project Management']
+                ],
+                [
+                    'name' => 'Sarah Chen',
+                    'position' => 'Senior Video Editor',
+                    'image' => 'team/sarah-chen.jpg',
+                    'skills' => ['Video Editing', 'Color Grading', 'Motion Graphics']
+                ],
+                [
+                    'name' => 'Marcus Rodriguez',
+                    'position' => 'Motion Graphics Specialist',
+                    'image' => 'team/marcus-rodriguez.jpg',
+                    'skills' => ['After Effects', '3D Animation', 'Visual Effects']
+                ],
+                [
+                    'name' => 'Emily Watson',
+                    'position' => 'Audio Engineer',
+                    'image' => 'team/emily-watson.jpg',
+                    'skills' => ['Sound Design', 'Audio Mixing', 'Music Production']
+                ],
+                
+                [
+                    'name' => 'Lisa Thompson',
+                    'position' => 'Project Coordinator',
+                    'image' => 'team/lisa-thompson.jpg',
+                    'skills' => ['Project Management', 'Client Relations', 'Timeline Coordination']
+                ]
+            ];
+            @endphp
+            
+            @foreach($teamMembers as $member)
+            <div class="team-member-card" style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 1.5rem; text-align: center; border: 1px solid rgba(255, 0, 0, 0.2); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <!-- Team Member Image -->
+                <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 3px solid rgba(255, 0, 0, 0.3);">
+                    <img src="{{ asset($member['image']) }}" alt="{{ $member['name'] }}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='{{ asset('about-photo.jpg') }}'">
+                </div>
+                
+                <!-- Team Member Info -->
+                <h3 style="color: #FF0000; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">{{ $member['name'] }}</h3>
+                <p style="color: #FFFFFF; font-size: 1rem; font-weight: 600; margin-bottom: 1rem; opacity: 0.9;">{{ $member['position'] }}</p>
+                
+                <!-- Skills -->
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                    @foreach($member['skills'] as $skill)
+                    <span style="background: rgba(255, 0, 0, 0.2); color: #FFFFFF; padding: 4px 8px; border-radius: 15px; font-size: 0.8rem; border: 1px solid rgba(255, 0, 0, 0.3);">{{ $skill }}</span>
+                    @endforeach
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 @endsection

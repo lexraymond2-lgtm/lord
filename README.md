@@ -33,6 +33,13 @@ A professional portfolio website for video editors built with Laravel, featuring
 - **Email Templates**: Professional HTML email design
 - **Success/Error Handling**: User-friendly feedback
 
+### 👥 **Team Section**
+- **Meet the Team Button**: Interactive button on about page
+- **Team Modal**: Full-screen popup with team member profiles
+- **Team Member Cards**: Individual cards with photos, names, positions, and skills
+- **Responsive Grid**: Adaptive layout for different screen sizes
+- **Fallback Images**: Graceful handling of missing team photos
+
 ## 🚀 **Installation & Setup**
 
 ### **Prerequisites**
@@ -183,6 +190,28 @@ $services = [
 - **Fallback**: Use gradient colors for video fallback
 - **Border**: Add border-bottom for all services except the last one
 
+### **Adding Team Members**
+Edit the `$teamMembers` array in `resources/views/about.blade.php`:
+
+```php
+$teamMembers = [
+    [
+        'name' => 'Team Member Name',
+        'position' => 'Job Title',
+        'image' => 'team/member-photo.jpg',
+        'skills' => ['Skill 1', 'Skill 2', 'Skill 3']
+    ],
+    // Add more team members...
+];
+```
+
+**Team Member Requirements:**
+- **Image**: Place team photos in `public/team/` directory
+- **Name**: Full name of the team member
+- **Position**: Job title or role
+- **Skills**: Array of 3-5 relevant skills or expertise areas
+- **Fallback**: Uses `about-photo.jpg` if team photo is missing
+
 ### **Updating Brand Information**
 - **Logo**: Replace `public/logo/Red-on-black1.jpg`
 - **Brand Name**: Update in `resources/views/layouts/app.blade.php`
@@ -199,17 +228,26 @@ $services = [
 
 #### **File Organization**
 ```
-public/videos/
-├── hero-video.mp4              # Main hero background
-├── portfolio/                  # Project showcase videos
-│   ├── project-1.mp4
-│   └── project-2.mp4
-├── services/                   # Service showcase videos
-│   ├── commercials.mp4
-│   └── testimonials.mp4
-└── testimonials/               # Client testimonial videos
-    ├── client-1.mp4
-    └── client-2.mp4
+public/
+├── videos/
+│   ├── hero-video.mp4              # Main hero background
+│   ├── portfolio/                  # Project showcase videos
+│   │   ├── project-1.mp4
+│   │   └── project-2.mp4
+│   ├── services/                   # Service showcase videos
+│   │   ├── commercials.mp4
+│   │   └── testimonials.mp4
+│   └── testimonials/               # Client testimonial videos
+│       ├── client-1.mp4
+│       └── client-2.mp4
+├── team/                           # Team member photos
+│   ├── alex-johnson.jpg
+│   ├── sarah-chen.jpg
+│   ├── marcus-rodriguez.jpg
+│   ├── emily-watson.jpg
+│   ├── david-kim.jpg
+│   └── lisa-thompson.jpg
+└── about-photo.jpg                 # Fallback image for team photos
 ```
 
 #### **Video Optimization**
