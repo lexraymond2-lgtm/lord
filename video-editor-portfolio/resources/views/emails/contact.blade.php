@@ -73,7 +73,7 @@
 <body>
     <div class="email-container">
         <div class="header">
-            <h1>offthegridgh</h1>
+            <h1>OffTheGrid GH</h1>
             <p>New Contact Form Submission</p>
         </div>
         

@@ -13,7 +13,7 @@
     <div class="hero-content">
         <h1 class="hero-title">
             <span class="text-white">CREATIVE</span><br>
-            <span class="text-red">VIDEO EDITOR</span>
+            <span class="text-red">VIDEO production</span>
         </h1>
         <p class="hero-subtitle">
             Bringing your vision to life through professional video editing and storytelling
@@ -25,7 +25,7 @@
     </div>
 </section>
 
-<!-- Testimonials Section -->
+{{-- <!-- Testimonials Section -->
 <section class="section" style="background: rgba(0, 0, 0, 0.8);">
     <div class="container">
         <h2 class="section-title">
@@ -41,7 +41,7 @@
                     'role' => 'Marketing Director',
                     'video' => 'videos/testimonials/em-testimonial.mp4',
                     'fallback' => 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
-                    'quote' => 'offthegridgh transformed our brand story into a compelling visual narrative. Their attention to detail and creative vision exceeded our expectations.',
+                    'quote' => 'OffTheGrid GH transformed our brand story into a compelling visual narrative. Their attention to detail and creative vision exceeded our expectations.',
                     'rating' => 5
                 ],
                 [
@@ -61,7 +61,7 @@
                     'role' => 'Creative Director',
                     'video' => 'videos/testimonials/emil-testimonial.mp4',
                     'fallback' => 'linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%)',
-                    'quote' => 'Working with offthegridgh was a game-changer. They understood our vision and brought it to life in ways we never imagined possible.',
+                    'quote' => 'Working with OffTheGrid GH was a game-changer. They understood our vision and brought it to life in ways we never imagined possible.',
                     'rating' => 5
                 ],
                 [
@@ -121,28 +121,28 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- About Section -->
 <section id="about" class="section">
     <div class="container">
         <h2 class="section-title">
-            About <span class="text-red">offthegridgh</span>
+            About <span class="text-red">OffTheGrid GH</span>
         </h2>
         <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
             <div>
-                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #FF0000;">Creative Video Production Studio</h3>
+                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #FF0000;">Creative Video Production</h3>
                 <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">
-                    We're a dynamic video production startup that specializes in creating compelling visual stories 
-                    for modern brands. Our team combines creative vision with cutting-edge technology to deliver 
+                    We're a dynamic video production company that specializes in creating compelling visual stories 
+                    for modern brands. Our team combines creative to deliver 
                     exceptional video content that drives engagement and achieves business objectives.
                 </p>
                 <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
-                    From corporate communications to music videos and social media content, we bring fresh perspectives 
+                    From short-flm  to documentaries to comercials, we bring fresh perspectives 
                     and innovative techniques to every project. Our collaborative approach ensures that your vision 
                     becomes a compelling visual reality.
                 </p>
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                {{-- <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
                     <div>
                         <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">3+ Years</h4>
                         <p style="opacity: 0.8;">Company Experience</p>
@@ -155,7 +155,7 @@
                         <h4 style="color: #FF0000; font-weight: 600; margin-bottom: 0.5rem;">100%</h4>
                         <p style="opacity: 0.8;">Client Satisfaction</p>
                     </div>
-                </div>
+                </div> --}}
                 <a href="{{ route('about') }}" class="btn-primary">Learn More About Us</a>
             </div>
             <div style="text-align: center;">
@@ -459,7 +459,7 @@
 <!-- Footer -->
 <footer style="background: #000000; padding: 2rem 0; border-top: 1px solid rgba(255, 0, 0, 0.2);">
     <div class="container" style="text-align: center;">
-        <p style="opacity: 0.8; margin-bottom: 1rem;">© 2024 offthegridgh. All rights reserved.</p>
+        <p style="opacity: 0.8; margin-bottom: 1rem;">© 2024 OffTheGrid GH. All rights reserved.</p>
     </div>
 </footer>
 

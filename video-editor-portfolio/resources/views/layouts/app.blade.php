@@ -702,7 +702,7 @@
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand">
                 <img src="{{ asset('logo/Red-on-black1.jpg') }}" alt="Off The Grid GH Logo" class="navbar-logo">
-                offthegridgh
+                OffTheGrid GH
             </a>
             <ul class="navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
@@ -968,7 +968,7 @@
                     role: 'Marketing Director',
                     video: '{{ asset("videos/testimonials/em-testimonial.mp4") }}',
                     fallback: 'linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #666666 100%)',
-                    quote: 'offthegridgh transformed our brand story into a compelling visual narrative. Their attention to detail and creative vision exceeded our expectations.',
+                    quote: 'OffTheGrid GH transformed our brand story into a compelling visual narrative. Their attention to detail and creative vision exceeded our expectations.',
                     rating: 5
                 },
                 {
@@ -988,7 +988,7 @@
                     role: 'Creative Director',
                     video: '{{ asset("videos/testimonials/emil-testimonial.mp4") }}',
                     fallback: 'linear-gradient(135deg, #4B0082 0%, #8A2BE2 50%, #DA70D6 100%)',
-                    quote: 'Working with offthegridgh was a game-changer. They understood our vision and brought it to life in ways we never imagined possible.',
+                    quote: 'Working with OffTheGrid GH was a game-changer. They understood our vision and brought it to life in ways we never imagined possible.',
                     rating: 5
                 },
                 {
